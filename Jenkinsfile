@@ -32,6 +32,10 @@ pipeline {
                 }
             }
         }
+        stage('Cleanup') {
+            echo 'Limpando as imagens locais...'
+            sh "docker rmi maxxsantos/guia-jenkins:${env.BUILD_ID} || true"
+        }
         stage('Deploy') {
             steps {
                 sh 'echo "Executando o docker build"'
