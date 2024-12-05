@@ -10,10 +10,20 @@ pipeline {
                 // }
             }
         }
+        stage('Docker login') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: "dockerhub", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh "docker login -u DOCKER_USER -p DOCKER_PASS https://registry.hub.docker.com"
+                    }
+                }
+            }
+        }
         stage('push docker image') {
             steps {
                 script {
                     sh 'echo "Executando push docker image"'
+                    sh "docker push https://registry.hub.docker.com/maxxsantos/guia-jenkins:${env.BUILD_ID}"
                     // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                     //     dockerapp.push('latest')
                     //     dockerapp.push("${env.BUILD_ID}")
