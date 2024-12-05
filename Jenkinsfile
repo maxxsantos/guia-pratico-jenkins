@@ -33,8 +33,10 @@ pipeline {
             }
         }
         stage('Cleanup') {
-            echo 'Limpando as imagens locais...'
-            sh "docker rmi maxxsantos/guia-jenkins:${env.BUILD_ID} || true"
+            steps {
+                echo 'Limpando as imagens locais...'
+                sh "docker rmi maxxsantos/guia-jenkins:${env.BUILD_ID} || true"
+            }
         }
         stage('Deploy') {
             steps {
