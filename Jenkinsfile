@@ -7,7 +7,7 @@ pipeline {
                 sh "docker build -f ./src/Dockerfile -t maxxsantos/guia-jenkins:${env.BUILD_ID} ./src"
                 // script {
                 //     dockerapp = docker.build("maxxsantos/guia-jenkins:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
-                }
+                // }
             }
         }
         stage('push docker image') {
