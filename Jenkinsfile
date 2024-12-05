@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'echo "Executando o docker build"'
+                sh 'echo "Executando o deploy"'
             }
         }
     }
