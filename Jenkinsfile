@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo "Executando push docker image"'
-                    sh "docker push https://registry.hub.docker.com/maxxsantos/guia-jenkins:${env.BUILD_ID}"
+                    sh "docker push maxxsantos/guia-jenkins:${env.BUILD_ID}"
                     // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                     //     dockerapp.push('latest')
                     //     dockerapp.push("${env.BUILD_ID}")
