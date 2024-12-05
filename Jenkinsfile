@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: "dockerhub", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                        sh "echo -n ${DOCKER_PASS} | docker login --username ${DOCKER_USER} --password-stdin https://registry.hub.docker.com"
+                        sh "echo -n ${DOCKER_PASS} | docker login --username ${DOCKER_USER} --password-stdin docker.io"
                         // sh "docker login -u ${DOCKER_USER} --password-stdin DOCKER_PASS https://registry.hub.docker.com"
                     }
                 }
